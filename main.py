@@ -19,7 +19,7 @@ def echo(message):
     lines = message.text.split('#')
 
     for i in range(1, len(lines), 3):
-        bot.reply_to('#' + '#'.join(lines[i: i + 3]))
+        bot.reply_to(message, '#' + '#'.join(lines[i: i + 3]))
 
 
 @server.route(f'/{TOKEN}', methods=['POST'])
