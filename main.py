@@ -17,8 +17,11 @@ def start(message):
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def echo(message):
     lines = message.text.split('#')
+    print(lines)
 
     for i in range(0, len(lines), 3):
+        print(i)
+        print(lines[i: i + 3])
         bot.reply_to(message, '#'.join(lines[i: i + 3]))
 
 
