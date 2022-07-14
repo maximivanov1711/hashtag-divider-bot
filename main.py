@@ -14,10 +14,12 @@ def start(message):
     bot.reply_to(message, f'Hello {message.from_user.first_name}')
 
 
-
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def echo(message):
-    bot.reply_to(message, message.text)
+    lines = message.text.split('\n')
+
+    for i in range(0, len(lines), 3):
+        bot.reply_to(message, '\n'.join(lines[i: i + 3]))
 
 
 @server.route(f'/{TOKEN}', methods=['POST'])
